@@ -2,33 +2,64 @@
 <html>
 <head>
 	<title>Page Title</title>
+
+
 </head>
 <body>
+
     <p id="FirstPara"></p>
+    
+    <!-- id is like a variable name, being "number", if you add type="number" it will add arrows to increase/decrease number in the box-->
+    <!-- the name is not needed in JS but used in php -->
     <form>
-        <input id="number" type="number" name="value">
+        <input id="number" name="value">
         <br>
-        <button type="button" onclick="demofunction()">click me</button>
+        <button type="button" onclick="square()">click me</button>
     </form>
+
+    <form>
+        <input id="addition1">
+        <input id="addition2">
+        <br>
+        <button type="button" onclick="add()">add</button>
+    </form>
+
+    </form>
+
+    <p2 id="answer"></p2>
 
     <p1 id="die"></p1>
 
 <script>
     var message="tip: don't drop your hair dryer in the bath";
-    document.write("hello wordl");
+    document.write("<br>hello wordl");
     
     chosenelement=document.getElementById("FirstPara")
-    chosenelement.innerHTML="YOO"
+    chosenelement.innerHTML="this box below squares the number in the box"
 
     chosenelement=document.getElementById("die")
-    chosenelement.innerHTML="ooooooooooo<br>o          o<br>o  #    #  o"
+    
+    // the "&emsp;" gives a long gap, with "&ensp;" giving a small gap
+    chosenelement.innerHTML="ooooooooooo<br>o&emsp;&emsp;&emsp;&emsp;&ensp;o<br>o&emsp;#&emsp;&ensp;#&emsp;o<br>o&emsp;&emsp;#&emsp;&emsp;o<br>o&emsp;#&emsp;&ensp;#&emsp;o<br>o&emsp;&emsp;&emsp;&emsp;&ensp;o<br>ooooooooooo"
+
+    chosenelement=document.getElementById("answer")
+    chosenelement.innerHTML=total
+
     
     alert(message)
 
-    function demofunction(){
-        var x=document.getElementById("number").value
+    // fucntion that does the squaring (use var for old browsers)
+    function square(){
+        x=document.getElementById("number").value
         y=x*x
         alert(y)
+    }
+
+    function add(){
+        num1=getElementById("addition1").value;
+        num2=getElementById("addition2").value;
+        total=num1+num2;
+        alert(total)
     }
 </script>
 
