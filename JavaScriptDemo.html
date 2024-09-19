@@ -32,7 +32,7 @@
 
 <script>
     var message="tip: don't drop your hair dryer in the bath";
-    document.write("<br>hello wordl");
+    document.write("<br>hello world");
     
     chosenelement=document.getElementById("FirstPara")
     chosenelement.innerHTML="this box below squares the number in the box"
@@ -56,9 +56,9 @@
     }
 
     function add(){
-        num1=getElementById("addition1").value;
-        num2=getElementById("addition2").value;
-        total=num1+num2;
+        num1=document.getElementById("addition1").value
+        num2=document.getElementById("addition2").value
+        total=num1+num2
         alert(total)
     }
 </script>
