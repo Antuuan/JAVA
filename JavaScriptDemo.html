@@ -24,14 +24,22 @@
         <button type="button" onclick="add()">add</button>
     </form>
 
+    <form>
+        <input id="analysis">
+        <input id="design">
+        <input id="implementation">
+        <input id="evaluation">
+        <br>
+        <button type="button" onclick="add()">get grade</button>
     </form>
 
     <p2 id="answer"></p2>
 
-    <p1 id="die"></p1>
+    <p1 id="die"><br></p1>
 
 <script>
     var message="tip: don't drop your hair dryer in the bath";
+    
     document.write("<br>hello world");
     
     chosenelement=document.getElementById("FirstPara")
@@ -41,11 +49,10 @@
     
     // the "&emsp;" gives a long gap, with "&ensp;" giving a small gap
     chosenelement.innerHTML="ooooooooooo<br>o&emsp;&emsp;&emsp;&emsp;&ensp;o<br>o&emsp;#&emsp;&ensp;#&emsp;o<br>o&emsp;&emsp;#&emsp;&emsp;o<br>o&emsp;#&emsp;&ensp;#&emsp;o<br>o&emsp;&emsp;&emsp;&emsp;&ensp;o<br>ooooooooooo"
-
-    chosenelement=document.getElementById("answer")
-    chosenelement.innerHTML=total
-
     
+    chosenelement=document.getElementById("answer")
+    chosenelement.innerHTML=
+
     alert(message)
 
     // fucntion that does the squaring (use var for old browsers)
@@ -56,10 +63,13 @@
     }
 
     function add(){
-        num1=document.getElementById("addition1").value
-        num2=document.getElementById("addition2").value
-        total=num1+num2
-        alert(total)
+        num1=parseInt(document.getElementById("addition1").value)
+        num2=parseInt(document.getElementById("addition2").value)
+        alert(num1+num2)
+    }
+
+    function grades(){
+        
     }
 </script>
 
