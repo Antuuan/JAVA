@@ -24,13 +24,15 @@
         <button type="button" onclick="add()">add</button>
     </form>
 
+    <p3 id="grade"></p3>
+
     <form>
         <input id="analysis">
         <input id="design">
         <input id="implementation">
         <input id="evaluation">
         <br>
-        <button type="button" onclick="add()">get grade</button>
+        <button type="button" onclick="grades()">get grade</button>
     </form>
 
     <p2 id="answer"></p2>
@@ -39,6 +41,7 @@
 
 <script>
     var message="tip: don't drop your hair dryer in the bath";
+    alert(message)
     
     document.write("<br>hello world");
     
@@ -49,11 +52,10 @@
     
     // the "&emsp;" gives a long gap, with "&ensp;" giving a small gap
     chosenelement.innerHTML="ooooooooooo<br>o&emsp;&emsp;&emsp;&emsp;&ensp;o<br>o&emsp;#&emsp;&ensp;#&emsp;o<br>o&emsp;&emsp;#&emsp;&emsp;o<br>o&emsp;#&emsp;&ensp;#&emsp;o<br>o&emsp;&emsp;&emsp;&emsp;&ensp;o<br>ooooooooooo"
-    
-    chosenelement=document.getElementById("answer")
-    chosenelement.innerHTML=
 
-    alert(message)
+    //alternative way to do output:
+    document.getElementById("grade").innerHTML="&ensp;&emsp;&emsp;&emsp;analysis, &ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; design, &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; implementation, &emsp;&emsp;&emsp;&emsp;&emsp; evaluation"
+
 
     // fucntion that does the squaring (use var for old browsers)
     function square(){
@@ -70,7 +72,53 @@
 
     
     function grades(){
-        
+        a=Number(document.getElementById("analysis").value)
+        b=Number(document.getElementById("design").value)
+        c=Number(document.getElementById("implementaion").value)
+        d=Number(document.getElementById("evaluation").value)
+        totals=a+b+c+d
+
+        let grade;
+            switch(totals){
+                case totals>=80:
+                    grade="A*";
+                    break;
+                
+                case totals>=67:
+                    grade="A";
+                    break;
+
+                case totals>=54:
+                    grade="B";
+                    break;
+                
+                case totals>=41:
+                    grade="C";
+                    break;
+
+                case totals>=31:
+                    grade="D";
+                    break;
+                
+                case totals>=22:
+                    grade="E";
+                    break;
+                
+                case totals>=13:
+                    grade="F";
+                    break;
+                
+                case totals>=4:
+                    grade="G";
+                    break;
+
+                case totals=0:
+                    grade="U";
+                    break;
+            }
+
+        alert("total score is: "+String(totals)+"grade is: "+String(grade))
+
     }
 </script>
 
