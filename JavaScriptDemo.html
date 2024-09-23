@@ -35,6 +35,8 @@
         <button type="button" onclick="grades()">get grade</button>
     </form>
 
+    <button type="button" onclick="mean()">average calculater</button>
+
     <p2 id="answer"></p2>
 
     <p1 id="die"><br></p1>
@@ -51,7 +53,7 @@
     chosenelement=document.getElementById("die")
     
     // the "&emsp;" gives a long gap, with "&ensp;" giving a small gap
-    chosenelement.innerHTML="ooooooooooo<br>o&emsp;&emsp;&emsp;&emsp;&ensp;o<br>o&emsp;#&emsp;&ensp;#&emsp;o<br>o&emsp;&emsp;#&emsp;&emsp;o<br>o&emsp;#&emsp;&ensp;#&emsp;o<br>o&emsp;&emsp;&emsp;&emsp;&ensp;o<br>ooooooooooo"
+    chosenelement.innerHTML="<br>ooooooooooo<br>o&emsp;&emsp;&emsp;&emsp;&ensp;o<br>o&emsp;#&emsp;&ensp;#&emsp;o<br>o&emsp;&emsp;#&emsp;&emsp;o<br>o&emsp;#&emsp;&ensp;#&emsp;o<br>o&emsp;&emsp;&emsp;&emsp;&ensp;o<br>ooooooooooo"
 
     //alternative way to do output:
     document.getElementById("grade").innerHTML="&ensp;&emsp;&emsp;&emsp;analysis, &ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; design, &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; implementation, &emsp;&emsp;&emsp;&emsp;&emsp; evaluation"
@@ -74,52 +76,77 @@
     function grades(){
         a=Number(document.getElementById("analysis").value)
         b=Number(document.getElementById("design").value)
-        c=Number(document.getElementById("implementaion").value)
+        c=Number(document.getElementById("implementation").value)
         d=Number(document.getElementById("evaluation").value)
         totals=a+b+c+d
+        // alert(totals)
 
-        let grade;
-            switch(totals){
-                case totals>=80:
-                    grade="A*";
-                    break;
-                
-                case totals>=67:
-                    grade="A";
-                    break;
+        var grade;
 
-                case totals>=54:
-                    grade="B";
-                    break;
+        switch(true){
+            case (totals>=80):
+                grade="A*";
+                break;
                 
-                case totals>=41:
-                    grade="C";
-                    break;
+            case (totals>=67):
+                grade="A";
+                break;
 
-                case totals>=31:
-                    grade="D";
-                    break;
+            case (totals>=54):
+                grade="B";
+                break;
                 
-                case totals>=22:
-                    grade="E";
-                    break;
-                
-                case totals>=13:
-                    grade="F";
-                    break;
-                
-                case totals>=4:
-                    grade="G";
-                    break;
+            case (totals>=41):
+                grade="C";
+                break;
 
-                case totals=0:
-                    grade="U";
-                    break;
+            case (totals>=31):
+                grade="D";
+                break;
+                
+            case (totals>=22):
+                grade="E";
+                break;
+                
+            case (totals>=13):
+                grade="F";
+                break;
+                
+            case (totals>=4):
+                grade="G";
+                break;
+
+            case (totals==0):
+                grade="U";
+                break;
             }
 
-        alert("total score is: "+String(totals)+"grade is: "+String(grade))
+        alert("total score is: "+String(totals)+" grade is: "+String(grade))
 
     }
+
+    function mean(){
+
+        NumValues=Number(prompt("how many numbers do you want to enter?"));
+
+        numbers=[];
+        total=0;
+
+        //for loop, with i starting at 0 (being the counter), looping while i< NumValues, i++ increments i by 1
+        for(let i=0; i<NumValues; i++){
+            
+            //.push works like .append in python
+            number=Number(prompt("enter number"+String(i+1)));
+            numbers.push(number)
+            total=total+number
+        }
+        
+        average=total/NumValues;
+    
+        alert("total: "+String(total));
+        alert("average: "+String(average))
+    }
+
 </script>
 
 </body>
