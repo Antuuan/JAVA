@@ -41,6 +41,8 @@
 
     <p1 id="die"><br></p1>
 
+    <br><button type="button" onclick="CompoundInterest()">compound compound interest calculater</button>
+
 <script>
     var message="tip: don't drop your hair dryer in the bath";
     alert(message)
@@ -145,6 +147,26 @@
     
         alert("total: "+String(total));
         alert("average: "+String(average))
+    }
+
+    function CompoundInterest(){
+        NewBalance=Number(prompt("enter starting balance"))
+        interest=Number(prompt("enter percentage interest"))
+        goal=Number(prompt("enter goal"))
+
+        interest_multiply=interest/100
+
+        OldBalance=0
+
+        for(let i=0; NewBalance<goal; i++){
+            OldBalance=NewBalance
+            NewBalance=NewBalance*interest_multiply
+
+            document.write(NewBalance)
+
+            document.write("Year "+String(i+1)+"New Balance = "+String(OldBalance)+"+ ("+String(OldBalance)+"*"+String(interest_multiply)+") = "+String(NewBalance))
+            
+        }
     }
 
 </script>
