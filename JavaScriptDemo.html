@@ -17,6 +17,7 @@
         <button type="button" onclick="square()">click me</button>
     </form>
 
+    <!-- additon form -->
     <form>
         <input id="addition1">
         <input id="addition2">
@@ -24,8 +25,7 @@
         <button type="button" onclick="add()">add</button>
     </form>
 
-    <p3 id="grade"></p3>
-
+    <!-- grades form -->
     <form>
         <input id="analysis">
         <input id="design">
@@ -35,52 +35,64 @@
         <button type="button" onclick="grades()">get grade</button>
     </form>
 
+    <!-- average calculater -->
     <button type="button" onclick="mean()">average calculater</button>
 
-    <p2 id="answer"></p2>
-
+    <!-- die -->
     <p1 id="die"><br></p1>
 
+    <!-- coumpound interest -->
     <br><button type="button" onclick="CompoundInterest()">compound compound interest calculater</button>
 
+    <!-- dice roll -->
+    <br><button type="button" onclick="diceroll()">Roll Dice!</button>
+    <p4 id="dicerolloutput"></p4>
+
+
 <script>
+    
+    // message at start
     var message="tip: don't drop your hair dryer in the bath";
     alert(message)
     
+    // writing hello world at the bottom
     document.write("<br>hello world");
     
+
     chosenelement=document.getElementById("FirstPara")
     chosenelement.innerHTML="this box below squares the number in the box"
 
+    // outputting dice (the "&emsp;" gives a long gap, with "&ensp;" giving a small gap)
     chosenelement=document.getElementById("die")
-    
-    // the "&emsp;" gives a long gap, with "&ensp;" giving a small gap
     chosenelement.innerHTML="<br>ooooooooooo<br>o&emsp;&emsp;&emsp;&emsp;&ensp;o<br>o&emsp;#&emsp;&ensp;#&emsp;o<br>o&emsp;&emsp;#&emsp;&emsp;o<br>o&emsp;#&emsp;&ensp;#&emsp;o<br>o&emsp;&emsp;&emsp;&emsp;&ensp;o<br>ooooooooooo"
 
-    //alternative way to do output:
+    // alternative way to do output:
     document.getElementById("grade").innerHTML="&ensp;&emsp;&emsp;&emsp;analysis, &ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; design, &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; implementation, &emsp;&emsp;&emsp;&emsp;&emsp; evaluation"
 
 
-    // fucntion that does the squaring (use var for old browsers)
+    // fucntion that does the squaring (use var to define variables for old browsers)
     function square(){
         x=document.getElementById("number").value
         y=x*x
         alert(y)
     }
 
+    // add function
     function add(){
         num1=Number(document.getElementById("addition1").value)
         num2=Number(document.getElementById("addition2").value)
         alert(num1+num2)
     }
 
-    
+    // grade calculation
     function grades(){
         a=Number(document.getElementById("analysis").value)
         b=Number(document.getElementById("design").value)
         c=Number(document.getElementById("implementation").value)
         d=Number(document.getElementById("evaluation").value)
         totals=a+b+c+d
+        
+        // debugging
         // alert(totals)
 
         var grade;
@@ -127,6 +139,7 @@
 
     }
 
+    // average calculater function
     function mean(){
 
         NumValues=Number(prompt("how many numbers do you want to enter?"));
@@ -134,7 +147,7 @@
         numbers=[];
         total=0;
 
-        //for loop, with i starting at 0 (being the counter), looping while i< NumValues, i++ increments i by 1
+        // for loop, with i starting at 0 (being the counter), looping while i< NumValues, i++ increments i by 1
         for(let i=0; i<NumValues; i++){
             
             //.push works like .append in python
@@ -149,24 +162,42 @@
         alert("average: "+String(average))
     }
 
+    // compund interest function
     function CompoundInterest(){
         NewBalance=Number(prompt("enter starting balance"))
         interest=Number(prompt("enter percentage interest"))
         goal=Number(prompt("enter goal"))
 
-        interest_multiply=interest/100
+        interest_multiply=1+(interest/100)
+        
+        // debugging
+        // console.log(interest_multiply)
+        // console.log(NewBalance)
 
         OldBalance=0
+        count=0
 
-        for(let i=0; NewBalance<goal; i++){
+        while(NewBalance<goal){
             OldBalance=NewBalance
             NewBalance=NewBalance*interest_multiply
 
-            document.write(NewBalance)
+            // debugging
+            // console.log(NewBalance)
 
-            document.write("Year "+String(i+1)+"New Balance = "+String(OldBalance)+"+ ("+String(OldBalance)+"*"+String(interest_multiply)+") = "+String(NewBalance))
+            document.write("<br>Year "+String(count+1)+" New Balance = "+String(OldBalance)+"+ ("+String(OldBalance)+"*"+String(interest_multiply)+") = "+String(NewBalance))
             
+            count=count+1
         }
+
+    }
+
+    // dice roll function
+    function diceroll(){
+        const faces=["one","two","three","four","five","six"];
+
+        RandomNumber=Math.floor(Math.random()*6);
+
+        document.getElementById("dicerolloutput").innerHTML=faces[(RandomNumber)]
     }
 
 </script>
